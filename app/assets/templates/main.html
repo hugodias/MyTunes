@@ -1,0 +1,69 @@
+<div class="container">
+  <form action="" class="form-search">
+    <input type="text" class="input-medium search-query span12" placeholder="Search for songs, albums, artists" ng-model="query">
+  </form>
+
+  <table class="table table-songs">
+    <thead>
+      <th>#</th>
+      <th ng-click="setOrder('title')">Song title</th>
+      <th ng-click="setOrder('album')">Album</th>
+      <th ng-click="setOrder('artist')">Artist</th>
+    </thead>
+    <tbody>
+      <tr ng-repeat="song in songs[0] | filter:query | orderBy:order">
+        <td>
+          <i ng-click="startSong(song)" class="icon-play-circle icon-large icon-hover"></i>
+        </td>
+        <td>
+          <strong>{{song.title}}</strong>
+        </td>
+        <td class="hover" ng-click="findClick(song.album)">
+          {{song.album}}
+        </td>
+        <td class="hover" ng-click="findClick(song.artist)">
+          {{song.artist}}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="navbar navbar-inverse navbar-fixed-bottom">
+  <div class="navbar-inner">
+    <div class="container">
+      <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <div class="nav-collapse collapse">
+        <ul class="nav bottom_bar">
+          <li>
+            <i class="icon-step-backward icon-2x icon-hover" ng-click="prevSong()" style="color:white"></i>
+          </li>
+          <li>
+            <i class="icon-play-circle icon-2x icon-hover" ng-click="playSong()"style="color:white"></i>
+          </li>
+          <li>
+            <i class="icon-pause icon-2x icon-hover" ng-click="stopSong()" style="color:white"></i>
+          </li>
+          <li>
+            <i class="icon-step-forward icon-2x icon-hover" ng-click="nextSong()" style="color:white"></i>
+          </li>
+        </ul>
+        <ul class="nav list-queue">
+          <li ng-repeat="song in queue" ng:class="{true:'selected', false:''}[$index==current_song]" ng-click="changeSong($index)">
+            <div class="cover">
+              <img ng-src="http://lorempixel.com/34/34/" alt="">
+            </div>
+            <div class="info">
+              <div><strong>{{song.title}}</strong><br/><i>{{song.artist}}</i></div>
+            </div>
+            <i class="icon-remove icon-large remove-f-queue " ng-click="removeQueue($index)"></i>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

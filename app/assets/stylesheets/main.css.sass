@@ -1,0 +1,67 @@
+// Place all the styles related to the Main controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import _extends
+
+.icon-hover,
+.hover
+  cursor: pointer
+
+.hover:hover
+  text-decoration: underline
+.current_song
+  color: white
+  padding-left: 30px !important
+  padding-top: 27px !important
+
+.table-songs
+  margin-bottom: 100px
+  thead
+    th
+      cursor: pointer
+.bottom_bar
+  li
+    padding: 21px 0px 10px 0px
+
+
+.list-queue
+  height: 55px
+  padding-top: 10px !important
+  li
+    position: relative
+    cursor: pointer
+    margin-left: 5px
+    width: 140px
+    height: 45px
+    color: #FFF
+    font-size: 12px
+    text-align: center
+    border: 1px solid #320
+    background: #2d2d2d
+    box-shadow: 1px 4px 4px #000
+    border-radius: 5px
+    i.remove-f-queue
+      position: absolute
+      top: -4px
+      right: -9px
+      color: #FFF
+    &.selected
+      @extend .queue_active
+    div.cover
+      float: left
+      width: 30px
+      height: 34px
+      margin: 5px
+    div.info
+      float: left
+      width: 95px
+      text-align: left
+      padding-top: 5px
+      overflow: hidden
+      div
+        width: 500px
+        line-height: 15px
+        i
+          font-size: 10px
+
+

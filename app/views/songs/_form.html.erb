@@ -1,0 +1,8 @@
+<%= simple_form_for(@song, :html => {:class => 'form-horizontal'}) do |f| %>
+  <div class="field">
+    <%= f.input :file %>
+  </div>
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
